@@ -1,0 +1,749 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>FSKY Dev-tools Manual</title>
+<style type="text/css">
+<!--
+/* --- CLASSIC 2000s CSS --- */
+body {
+    background-color: #2b2b2b;
+    background-image: url('background.png'); /* ??? ???????? */
+    background-repeat: repeat; /* ?????????? ???????? ????????, ???????? 00-? */
+    background-attachment: fixed; /* ??? ???????? ?? ????? ??? ????????? */
+    color: #cccccc;
+    font-family: verdana, geneva, arial, helvetica, sans-serif;
+    font-size: 11px;
+    margin: 10px;
+}
+
+a:link, a:visited { color: #ff9900; text-decoration: none; }
+a:hover, a:active { color: #ffffff; text-decoration: underline; }
+
+/* Table overrides for layout */
+td, th, p, li { font-size: 11px; line-height: 1.4; }
+
+/* Main Wrapper */
+.maintable {
+    border: 1px solid #000000;
+    background-color: #1a1a1a; /* ??????? ??? ???????, ????? ????? ??????? ?????? ???????? */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.8); /* ?????? ???? ??? ????????? ?? ???? */
+}
+
+/* Header/Banner */
+.header {
+    background-color: #3b424d;
+    border-bottom: 2px solid #000000;
+    padding: 10px;
+    color: #ffffff;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #222222;
+    border-right: 1px solid #444444;
+}
+
+.menu-header {
+    background-color: #4A515A;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 3px 5px;
+    border: 1px outset #666666;
+    margin-top: 10px;
+}
+
+.menu-content {
+    background-color: #1a1a1a;
+    border: 1px inset #444444;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.menu-content ul { list-style-type: square; margin-left: 15px; padding-left: 0; margin-top: 2px; margin-bottom: 2px; }
+.menu-content li { margin-bottom: 3px; }
+
+/* Content Styling */
+.content {
+    padding: 15px;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    font-family: tahoma, verdana, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    border-bottom: 1px solid #555555;
+    margin-top: 0;
+    padding-bottom: 2px;
+}
+
+h2 {
+    font-family: tahoma, verdana, sans-serif;
+    font-size: 14px;
+    color: #E4965C;
+    border-bottom: 1px dashed #444444;
+    margin-top: 25px;
+    padding-bottom: 2px;
+}
+
+h3 { font-size: 12px; color: #dddddd; margin-top: 20px; margin-bottom: 5px; font-weight: bold;}
+h4 { font-size: 11px; color: #bbbbbb; margin-top: 15px; margin-bottom: 5px; font-weight: bold;}
+
+/* Old-school Infobox */
+.infobox {
+    border: 1px solid #555555;
+    background-color: #2b2b2b;
+    margin: 0 0 10px 10px;
+}
+.infobox-head {
+    background-color: #4A515A;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    border-bottom: 1px solid #000000;
+}
+.infobox td, .infobox th {
+    padding: 3px;
+    border-bottom: 1px solid #333333;
+}
+.infobox th { background-color: #222222; text-align: left; color: #aaaaaa; }
+
+/* Warning & Note Boxes */
+.alert-box { border: 1px solid #555555; padding: 5px; margin: 10px 0; }
+.alert-warning { border-color: #ff0000; background-color: #330000; }
+.alert-note { border-color: #0066cc; background-color: #001133; }
+.cmd-box { 
+    border: 1px inset #555555; 
+    background-color: #000000; 
+    color: #00ff00; 
+    font-family: "courier new", courier, monospace; 
+    padding: 10px; 
+    margin: 10px 0; 
+    white-space: pre-wrap;
+}
+
+/* TOC */
+.toc {
+    border: 1px solid #444444;
+    background-color: #222222;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.toc-header { font-weight: bold; text-align: center; border-bottom: 1px solid #444; margin-bottom: 5px; }
+.toc ul { list-style-type: none; padding-left: 15px; margin: 0; }
+.toc li { margin-bottom: 2px; }
+.toc ul ul { padding-left: 15px; list-style-type: disc; }
+
+/* Images & Thumbnails */
+.thumb { border: 1px solid #444; background-color: #222; padding: 4px; margin-bottom: 10px; }
+.thumb-caption { color: #888888; font-size: 10px; padding-top: 2px; text-align: center;}
+
+/* Utils */
+code { font-family: "courier new", courier, monospace; color: #99cc99; }
+kbd { font-family: tahoma, sans-serif; background: #cccccc; color: #000000; border: 1px outset #ffffff; padding: 0 3px; font-size: 10px; font-weight: bold; }
+hr { color: #444444; background-color: #444444; height: 1px; border: 0; margin: 20px 0;}
+
+.footer {
+    font-size: 10px;
+    text-align: center;
+    color: #666666;
+    padding: 10px;
+    border-top: 1px solid #444444;
+    background-color: #222222;
+}
+-->
+</style>
+</head>
+<body>
+
+<center>
+
+<!-- MAIN WRAPPER TABLE -->
+<table class="maintable" width="850" cellspacing="0" cellpadding="0" border="0">
+<tr>
+    <!-- HEADER -->
+    <td colspan="2" class="header">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td><h1 style="border:none; margin:0; padding:0; color:#E4965C;"><b>FSKY HOSTINGS</b></h1>
+                <font size="1" color="#888888">Server hosting og teknologi for deg!</font></td>
+                <td align="right" valign="bottom">
+                    <a href="#">Log in</a> | <a href="#">Create account</a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <!-- LEFT SIDEBAR -->
+    <td class="sidebar" width="160" valign="top" align="center" style="padding: 5px;">
+        <br>
+        <img src="fsky_logo.png" width="140" alt="FSKY Logo" border="0"><br><br>
+        
+        <div class="menu-header">Navigation</div>
+        <div class="menu-content" align="left">
+            <ul>
+                <li><a href="#">Website Home</a></li>
+				<li><a href="#">Server Hostings</a></li>
+				<li><a href="#">Website Forum</a></li>
+				<li><a href="#">Website News</a></li>
+                <li><a href="#Intro">Introduction</a></li>
+                <li><a href="#GRIS">GRIS Editor</a></li>
+                <li><a href="#SourceBox">SourceBox</a></li>
+                <li><a href="#MakeFace">MakeFace</a></li>
+            </ul>
+        </div>
+        
+        <div class="menu-header">Support</div>
+        <div class="menu-content" align="left">
+            <ul>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Report Bug</a></li>
+				<li><a href="#">Safety</a></li>
+                <li><a href="#">CD-Key Recovery</a></li>
+            </ul>
+        </div>
+        
+        <br>
+        <table border="1" bordercolor="#555555" cellspacing="0" cellpadding="2" width="100%">
+            <tr><td align="center" bgcolor="#222222">
+                <form action="#" style="margin:0;">
+                <input type="text" size="14" style="background-color:#000; color:#fff; border:1px solid #555; font-family:verdana; font-size:10px;" value="Search...">
+                <input type="submit" style="font-size:10px; background-color:#444; color:#fff; border:1px outset #666;" value="Go">
+                </form>
+            </td></tr>
+        </table>
+        <br>
+    </td>
+
+    <!-- MAIN CONTENT -->
+    <td class="content" width="690" valign="top">
+        
+        <a name="Intro"></a>
+        <h1>FSKY Dev-tools Manual.</h1>
+        <div style="font-size: 10px; color: #666; margin-top: -5px; margin-bottom: 15px;">&gt; <a href="#">FSKY Developer tools</a> &gt; <a href="#">Documentation</a> &gt; Manual</div>
+        
+        <p>Thank you for purchasing the FSKY developer tool suite! This page will help you to understand the basics of both Gris and SourceBox.</p>
+
+        <p>So, welcome to the Gris Editor. It's this cool 3D scene editor we created during our brief partnership with Valve Software. It all started with messing around with the Source engine's entity system and how AI acts. We kinda stole some ideas from Hammer's level design style, but we tossed in our own stuff for making dynamic scenes and see how things interact. Gris (which is short for Geometric Rudimentory Interactive Sculptor, by the way) lets you create simple 3D spaces, fill them with ai entities, and run simulations in this controlled, empty area &#150; think of it like those abstract test chambers.</p>
+
+        <p>Now, unlike the full-on Source tools like Hammer, Gris is this standalone editor that's all about quickly testing out AI and how objects interact. It runs straight on the Source engine, using MDL models for assets, BSP-style shapes for the solid stuff, and GRIS Shape based easy entity creation. Models load up in Valve's .MDL format (it can read simpler versions too, to be fair), and textures/materials use VMT/VTF pairs. The editor puts a lot of focus on giving entities their own personality with tweakable AI states, sounds, and physics shapes, so you can get some cool behaviors like chasing, wandering around, and capture stuff. As well as more complex stuff!</p>
+
+        <p>This page is gonna give you a detailed guide to using Gris. We're gonna assume you know some Source basics (like what entities, keyvalues, and outputs are). If you're new to Source modding, check out Valve's developer wiki to get the lowdown. Heads up: Gris is kinda old, so expect some quirks! We are currently working on much smoother environment like Boxrocket (DMEditor)</p>
+
+        <div class="alert-box alert-note">
+            <font color="#66b3ff"><b>Here's what you'll need to run it:</b></font>
+            <ul>
+                <li>Windows XP</li>
+                <li>Direct3D version 6.1</li>
+                <li>Source engine runtime (it's in the disk image package).</li>
+                <li>Sound support for WAV/MP3/OGG entity sounds.</li>
+            </ul>
+        </div>
+
+        <!-- TOC -->
+        <div class="toc">
+            <div class="toc-header">Contents</div>
+            <ul>
+                <li><a href="#GRIS">1. Let's Get Started! (GRIS)</a>
+                    <ul>
+                        <li><a href="#Installation">1.1 Installing and Firing It Up</a></li>
+                        <li><a href="#Navigation">1.2 Basic Navigation</a></li>
+                        <li><a href="#Interface">1.3 Interface Walkthrough</a></li>
+                        <li><a href="#Objects">1.4 Making and Changing Objects</a></li>
+                        <li><a href="#AI">1.5 AI Entities &amp; Types</a></li>
+                        <li><a href="#Drawing">1.6 Drawing Mode</a></li>
+                    </ul>
+                </li>
+                <li><a href="#SourceBox">2. SourceBox</a>
+                    <ul>
+                        <li><a href="#SB_Nav">2.1 Basic Navigation</a></li>
+                        <li><a href="#SB_Console">2.2 Using the Console</a></li>
+                        <li><a href="#SB_Tracker">2.3 Tracker Functionality</a></li>
+                        <li><a href="#ORD">2.4 ORD_CAPTURE</a></li>
+                    </ul>
+                </li>
+                <li><a href="#MakeFace">3. MAKE FACE (to be removed)</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <!-- GRIS SECTION -->
+        <a name="GRIS"></a>
+        <h2>Let's Get Started!</h2>
+
+        <table class="infobox" width="220" align="right" border="0" cellpadding="0" cellspacing="0">
+            <tr><td class="infobox-head" colspan="2">GRIS</td></tr>
+            <tr><td colspan="2" align="center" bgcolor="#1a1a1a"><img src="gris_logo.png" width="200" alt="GRIS Logo"></td></tr>
+            <tr><th width="40%">Format</th><td>.DME / .MDL / .OBJ</td></tr>
+            <tr><th>Status</th><td>Legacy</td></tr>
+        </table>
+
+        <a name="Installation"></a>
+        <h3>Installing and Firing It Up.</h3>
+        <p>To get this thing installed and running, you gotta play around with those disk image formats. Back in the day, this software came on CDs, so we're doing it the old-school way. This gets the tool working with the Source engine, so you'll need to mount and compile ISO files, then register with the SourceBox utility. Follow these steps closely to get it right:</p>
+
+        <ol>
+            <li><b>Extract the Disk Images:</b> You'll have CD_GRIS.iso (that's got the Gris Editor) and CD_SRCBOX.iso (with SourceBox, version 0.3.2.1999). Later versions might have install wizards, but not these.</li>
+            <li><b>Mount the ISOs:</b> Use something like Daemon Tools (or any CD-ROM emulator) to mount both CD_GRIS.iso and CD_SRCBOX.iso at the same time. If you're compiling, make sure they're mounted as one virtual drive.</li>
+            <li><b>Start the Install:</b> Once they're mounted, run the installer from that combined mount point. Pick your target Game folder (usually the bin folder next to Hammer.exe in your Source SDK install, like <code>C:\Program Files\Valve\SourceSDK\bin</code>). The installer will extract files and make these folders: GRIS for the editor stuff and SourceBox V0.3.2.1999.</li>
+            <li><b>Fire Up SourceBox for Setup:</b> Go to the SourceBox V0.3.2.1999 folder and run <code>SourceBox.exe</code>. This makes some config files that are needed, like runtime libraries, connecting to our server host, and creating currently active .DME from server side, might take a minute and low down your volume please, as process may include loud unpleasant sounds.</li>
+            <li><b>Register the CDKEY:</b> In SourceBox, press the cone button to switch to tracker and establish connection, hit the tilde key <kbd>~</kbd> to open the console and type <code>cdkey_reg</code> to start registering. Enter the CDKEY you got when you bought it, using a valid input device. Or, use <code>ord_gen</code> to generate an input field for inputing the key manually.</li>
+            <li><b>Validate and Restart:</b> After you enter a valid key, SourceBox will do its thing and unlock everything. Restart <code>SourceBox.exe</code> to connect to the server.</li>
+            <li><b>Launch Gris:</b> Only after SourceBox is registered and restarted, go to the GRIS folder and run <code>gris.exe</code>. The first time you run it, it'll load an empty scene with a grid floor, some lights, and a local container for playing with entities. If you have problems, double-check that the dev suite installed right, the CDKEY is registered, and you have a working internet connection.</li>
+        </ol>
+
+        <a name="Navigation"></a>
+        <h3>Basic Navigation.</h3>
+        <ul>
+            <li><b>Camera:</b> Use <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to move around (forward/back/left/right), <kbd>Q</kbd> for up, <kbd>E</kbd> for down. Right-click and drag the mouse to look around.</li>
+            <li><b>Observer Mode:</b> Hit <kbd>F5</kbd> or the OBSERVER button in the Toolbox to see a top-down view, which is handy for checking out the whole scene.</li>
+            <li><b>Grid and Bounds:</b> Scenes are in a local area with bounds[-50..50] on X/Z axis.</li>
+        </ul>
+
+        <h3>Loading/Saving Scenes.</h3>
+        <ul>
+            <li><b>File Format:</b> GRIS saves scenes as <code>.DME</code> (Dynamic Map Entity) files. This keeps all the entity settings, positions, and AI stuff.</li>
+            <li><b>Open/Save:</b> Use File &gt; Open/Save to open or save your DME files. The file browser shows folders with[DIR] in front and only shows .DME files. The Up button takes you to higher-level folders.</li>
+            <li><b>Auto-Save:</b> Pro tip: save every 5 minutes. GRIS doesn't autosave, and you don't wanna lose your work if something crashes (it's rare, but Source can overflow sometimes).</li>
+        </ul>
+
+        <table class="thumb" align="right" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-left: 10px;">
+            <tr><td align="center"><img src="screen1.png" width="250" border="1" alt="GRIS UI"></td></tr>
+            <tr><td class="thumb-caption">GRIS Editor Interface Overview</td></tr>
+        </table>
+
+        <a name="Interface"></a>
+        <h3>Interface Walkthrough.</h3>
+
+        <h4>Toolbar (Top):</h4>
+        <ul>
+            <li>File menu: New, Open, Save, Exit. Pretty self-explanatory.</li>
+            <li>Edit: Undo/Redo (for scene or drawing changes), Copy/Paste selected entities.</li>
+            <li>View: Toggle fullscreen or show/hide the toolbox.</li>
+        </ul>
+
+        <h4>Toolbar (Left):</h4>
+        <ul>
+            <li><b>Create Object:</b> Makes a GRIS shaped object or model that you can turn into an entity by giving it AI.</li>
+            <li><b>Paint Atlas:</b> Lets you color objects with simple colors using the FILL function and lets you pick any standard color. Pick HEX lets you use any custom color you want. Material Browser lets you slap any material from the <code>/materials/</code> folder onto objects. Outline is for drawing graffiti textures, but heads up, it's moved to DRAW in the latest versions. DRAW lets you draw your custom textures and simple graffiti.</li>
+            <li><b>DELETE:</b> Deletes any objects you don't want anymore. In the settings, you can use a dynamic REMOVER entity to gracefully delete your entities! Always fun!</li>
+            <li><b>OBSERVER:</b> Shows you a top-down view of your stuff, useful if you're working with 2D stuff or just wanna see the scene from above.</li>
+            <li><b>LOAD OBJECT:</b> Imports objects or AI entities from saved scenes if you need them.</li>
+            <li><b>EDIT VERTEX:</b> Lets you mess with the vertices of objects or scale them up/down. You can't mess with the vertices of models, though, only scale them.</li>
+        </ul>
+
+        <h4>3D Viewport (Center):</h4>
+        <p>Shows your scenes and entities in real time. You can set up a custom SKYBOX in the settings, but remember, this only affects your local editor, NOT the server side of the void.</p>
+
+        <h4>Comment Bar (Bottom):</h4>
+        <p>Shows status messages, like what mode you're in or what you're doing, like <i>Edit Mode: Select entity to modify.</i></p>
+
+        <h4>Transport Controls (Bottom-Right):</h4>
+        <p>Handy buttons like pause, which stops AI from updating, and a 2x speed button for watching AI simulations faster. Stop resets entity positions.</p>
+
+        <h4>Hotkeys:</h4>
+        <ul>
+            <li><kbd>Ctrl+Z/Y</kbd>: Undo/Redo.</li>
+            <li><kbd>Del</kbd>: Delete selected.</li>
+            <li><kbd>Esc</kbd>: Deselect/Cancel current mode.</li>
+            <li><kbd>F1</kbd>: Help (opens this manual).</li>
+        </ul>
+
+        <br clear="all">
+
+        <table class="thumb" align="left" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-right: 15px; margin-bottom: 5px;">
+            <tr><td align="center"><img src="screen2.png" width="250" border="1" alt="Creation Menu"></td></tr>
+            <tr><td class="thumb-caption">Creating basic objects and brushes</td></tr>
+            <tr><td align="center" style="padding-top: 10px;"><img src="screen6.png" width="250" border="1" alt="Edit Vertex"></td></tr>
+            <tr><td class="thumb-caption">Edit Vertex mode</td></tr>
+        </table>
+
+        <a name="Objects"></a>
+        <h3>Making and Changing Objects</h3>
+        <p>Gris handles three main entity types: Brushes (solid shapes), Models (MDL meshes, though, it can handle .OBJ formats, more on that later), and Gris Shapes. They all come from a base SceneObject class with settings for position, scale, rotation, color, and if they're solid.</p>
+
+        <h4>Spawning Entities.</h4>
+        <ul>
+            <li>Click the Create button on the toolbar to open the spawn menu.</li>
+            <li>Options: Cube, Sphere, Cone, Cylinder, Model (loads .MDL / .OBJ files), Brush (solid wall/floor).</li>
+            <li>When you spawn something: It appears where your camera is pointing on the ground (Y=0). It starts with a default scale[1,1,1] and a MISSING texture.</li>
+            <li>Models: Load .MDL files through the file dialog. Gris reads the vertices, normals, texture coordinates, and material groups (from the MTL data). Textures load as VTF automatically if they're there.</li>
+        </ul>
+
+        <h4>Brushes</h4>
+        <p>Solid entities used for collision. Coming from Gold Source days prototype, useful for testing AI collisions and pathfinding, and for making simple scenes. No self-collision, brushes can overlap, but solids block movement.<br>
+        Default: Cube at [2,2,2] scale.</p>
+
+        <h4>Selecting and Moving Stuff:</h4>
+        <ul>
+            <li><b>Select:</b> Left-click on an entity. Hold <kbd>Shift</kbd> to select multiple.</li>
+            <li><b>Move:</b> Drag the 3D gizmo with the left mouse button (X/Y/Z plane).</li>
+            <li><b>Scale/Rotate:</b> Use the gizmos (arrows for scale, arcs for rotating). Scale is limited to[0.1..10], rotation wraps around 360.</li>
+            <li><b>Copy/Paste:</b> <kbd>Ctrl+C</kbd> copies the settings of selected entities, <kbd>Ctrl+V</kbd> pastes them at an offset.</li>
+            <li><b>Undo/Redo:</b> Stores the entire scene state (list of entities). It goes back 30 steps.</li>
+            <li><b>Grid Snap:</b> You can turn it on in the Edit menu to snap positions to 0.5 units.</li>
+        </ul>
+
+        <br clear="all">
+		
+		<table class="thumb" align="left" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-right: 15px; margin-bottom: 5px;">
+            <tr><td align="center"><img src="screen7.png" width="250" border="1" alt="Creation Menu"></td></tr>
+            <tr><td class="thumb-caption">Adding AI to basic objects</td></tr>
+            <tr><td align="center" style="padding-top: 10px;"><img src="screen8.png" width="250" border="1" alt="Edit Vertex"></td></tr>
+            <tr><td class="thumb-caption">AI Settings tab</td></tr>
+        </table>
+
+        <a name="AI"></a>
+        <h3>AI Entities.</h3>
+        <p>This is where Gris shines: custom NPCs with their own behaviors. Entities get AI when you set <code>has_ai=true</code> and set an <code>ai_type</code> keyvalue. Simulations run in real time (per-frame updates), with a speed multiplier (1x/2x).</p>
+
+        <h4>Turning On AI:</h4>
+        <ul>
+            <li>Select an object, go to Edit, and click <b>Add AI</b>. Then select the entity again, go to Edit, and open <b>AI Settings</b>.</li>
+            <li>Types: FSKY_CAPTURE_CBSGY (only exists to CAPTURE AI and remove them from the scene, think of it as smart scene manager), DMNPC_TLEET_WDYMS (Primitive dynamic NPC), Siuef (Advanced Dynamic).</li>
+            <li>On apply: The entity gets an AI state machine, timer, speed (0.02-0.07 units/frame), and a config dictionary.</li>
+        </ul>
+
+        <h4>Common AI Stuff</h4>
+        <ul>
+            <li><b>Update Loop:</b> Every frame (if not paused), call <code>update_ai()</code> with menu mode flags, bounds, and all entities.</li>
+            <li><b>Movement:</b> entities bend, squash and lerp to look more alive, and silly! Like cones! Everybody likes watching silly cones move, especially Jeremy! :D</li>
+            <li><b>Collision:</b> AABB check against solids.</li>
+            <li><b>Sounds:</b> Sounds play through Source's audio system (WAV/MP3/OGG) while server converts them automatically during uploads, but WAV is prefered, since your mp3 and ogg pile up in temp folders, and thats why we need often server reboots! To clean up this shit &gt;:(</li>
+        </ul>
+        <p>Pause/Reset: Transport controls stop updates or reset positions/states.</p>
+
+        <h3>AI TYPES.</h3>
+
+        <h4>AI Type: FSKY_CAPTURE_CBSGY (AI CAPTURE Class)</h4>
+        
+        <div class="alert-box alert-warning">
+            <font color="#ff6666"><b>WARNING!</b></font> Do NOT send this entity to the server, it already exists and will cause problems!
+        </div>
+        
+        <ul>
+            <li><b>Behavior States:</b> WANDER (random movement), CAPTURE (removes the target entity), HALT (freeze for a couple of frames to process the next move).</li>
+            <li><b>Config Keyvalues:</b>
+                <ul>
+                    <li><code>fsky_ignore_col</code>: Bool&#151;ignores brush collision for direct paths.</li>
+                    <li><code>fsky_radius</code>: Float (1-100)&#151;detection range (default 15). Siuefs get -5 bias (easier target).</li>
+                </ul>
+            </li>
+            <li><b>Sounds:</b> Passive cycle (<code>fsky_pass</code>), Capture (<code>fsky_cap</code>), Notice 1/2 (<code>fsky_not1/2</code>).</li>
+            <li><b>Diagnostics:</b> Just shows current metal_reg_state states (AI LOGIC like PLAT, SETREG, etc.).</li>
+            <li><b>Capture Logic:</b> If targeted within radius, they switch to CAPTURE. On contact (&lt;1 unit), they flatten the target (scale Y=0.1, color red), turn off its AI, and play a sound.</li>
+            <li>(Warning! Source engine doesnt really support GRIS physics, especially when it comes to models, so during Captures rigid models can visualy distort.)</li>
+            <li><b>Movement:</b> Fly towards the target (including Y).</li>
+        </ul>
+
+        <h4>AI Type: DMNPC_TLEET_WDYMS (Primitive Dynamic NPC, or the Wanderer as we like to call it!)</h4>
+        <ul>
+            <li><b>Behavior:</b> Constant WANDER&#151;new random target sometimes, avoids piling up in huge groups.</li>
+            <li><b>Config Keyvalues:</b>
+                <ul>
+                    <li><code>dmnpc_phys</code>: GRIS shape (simple box) or Model (full MDL hull).</li>
+                </ul>
+            </li>
+            <li><b>Sounds:</b> Passive (<code>dmnpc_pass</code>), Damage (<code>dmnpc_dmg</code>), Death (<code>dmnpc_death</code>).</li>
+            <li><b>Animation:</b> Squash/stretch (1 + sin(timer*0.2)*0.05), bend (sin*0.2). Yaw lerps to target.</li>
+            <li><b>Movement:</b> Ground-based (Y fixed), speed 0.03. Respects collision.</li>
+        </ul>
+
+        <h4>AI Type: Siuef (Advanced Dynamic NPC)</h4>
+        <ul>
+            <li><b>Behavior:</b> Fully dynamic, adapts to its environment and reacts to it and players. Can only be a cone as later they take control of rigid bodies with small user help.</li>
+            <li><b>Config Keyvalues:</b>
+                <ul>
+                    <li><code>sil_speech</code>: Bool&#151;enable chat speech, they learn to chat based on player input, especially from the chat, so watch what you say! Its not our faults your npcs start swearing.</li>
+                    <li><code>sil_custom_col</code>: Bool&#151;a unique color picker</li>
+                    <li><code>sil_color</code>: RGB float.</li>
+                </ul>
+            </li>
+            <li><b>Sounds:</b> Passive (<code>sil_pass</code>), Damage (<code>sil_dmg</code>), Death (<code>sil_death</code>).</li>
+            <li><b>Interaction:</b> Anything you teach them. Really, we arent joking here. And PLEASE treat them light heartly, its still AI, even tho a very smart one, it cannot replace someone from your real life, its only used for cool scenes, or nice gameplay.</li>
+        </ul>
+		
+		<table class="thumb" align="left" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-right: 15px; margin-bottom: 5px;">
+			<tr><td align="center" style="padding-top: 10px;"><img src="screen10.png" width="250" border="1" alt="Edit Vertex"></td></tr>
+            <tr><td class="thumb-caption">Scene submitted to INT_MENU</td></tr>
+        </table>
+
+
+        <a name="INT_MENU"></a>
+        <h3>INT_MENU Mode</h3>
+        <p>Simulations run locally until you send them to INT_MENU. Once you're done building your scene or AI, upload them to our server host using following commands inside SourceBox typein - "network-push", followed by "ord_ren" to ping your container. SourceBox will automatically sync with local INT_MENU instance, detecting newly submitted scenes and objects. Make sure your connection is good before trying to push network updates. Networking issues during merges makes James VERY angry, and he WILL come to your desk and slap you with a fish.</p>
+        <p>Then, you have to validate your development kit CDKEY using "cdkey_check" command, after authenticating key scene will be submitted to our server host. Please remember not to misuse the Ordinance system, so that everyone can have fun! After you uploaded the scene, you can switch back to Editor mode, and save your files. For local hosts, you can try using SourceBox local DME host feature, more about that in SourceBox manual page.</p>
+
+		<table class="thumb" align="left" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-right: 15px; margin-bottom: 5px;">
+            <tr><td align="center" style="padding-top: 10px;"><img src="screen15.png" width="250" border="1" alt="Edit Vertex"></td></tr>
+            <tr><td class="thumb-caption">Draw Mode</td></tr>
+			<tr><td align="center"><img src="screen.png" width="250" border="1" alt="Creation Menu"></td></tr>
+            <tr><td class="thumb-caption">General Settings</td></tr>
+        </table>
+
+        <a name="Drawing"></a>
+        <h3>Drawing Mode</h3>
+        <p>Click the Draw button to toggle it&#151;opens a 2D canvas (1024x768) for making and changing textures. Uses Source's 2D render target with antialiasing.</p>
+
+        <h4>Tools</h4>
+        <ul>
+            <li><b>Brush/Eraser:</b> Soft line drawing (width 5/20, hardness 100). Alpha blends for smoothness.</li>
+            <li><b>Fill:</b> Flood fill (queue-based, respects alpha).</li>
+            <li><b>Picker:</b> Samples color.</li>
+            <li><b>Shapes:</b> Rectangle/Ellipse/Line. Shows a preview while dragging.</li>
+            <li><b>Line/Curve:</b> Single line or quadratic bezier (3 clicks: P1, P2, control).</li>
+        </ul>
+
+        <h4>Controls</h4>
+        <ul>
+            <li><b>Mouse:</b> Draw/drag. Right-click pan. Wheel zoom (0.1-5x).</li>
+            <li><b>Undo/Redo:</b> Image states (30 deep).</li>
+            <li><b>Reset:</b> Clear to white/transparent.</li>
+            <li><b>Save:</b> Export as VTF (through a dialog). Apply to the selected entity's material. Note, textures also can be exported as PNG/JPG/BMP they CAN be used inside gris with special flags such as:
+                <ol>
+                    <li>"_alpha" and "_cutout" prefixes to make them use transperancy for grates, fences etc.</li>
+                    <li>"_trans" "_glass" helps with drawing glass effects.</li>
+                </ol>
+            </li>
+        </ul>
+        <p>Same trick also works for models textures. Gris also supports obj format. NOTE, these models cannot be uploaded to server side, such as textures. But you can use them localy in Gris.</p>
+
+
+        <h4>Settings</h4>
+        <p><b>General Settings Tab</b></p>
+        <ul>
+            <li>Window: Windowed/Fullscreen.</li>
+            <li>Delete: Fast/Animated Remover.</li>
+            <li>Sounds: Disable sounds/music/delete.</li>
+            <li>Skybox: Pick VTF/PNG/JPG/BMP for the world cubemap (Source skybox shader).</li>
+        </ul>
+        <p><b>AI Settings Tab:</b> Per-entity, as above.</p>
+
+        <hr>
+
+        <!-- SOURCEBOX SECTION -->
+        <a name="SourceBox"></a>
+        <h2>SourceBox</h2>
+
+        <table class="infobox" width="220" align="right" border="0" cellpadding="0" cellspacing="0">
+            <tr><td class="infobox-head" colspan="2">SourceBox</td></tr>
+            <tr><td colspan="2" align="center" bgcolor="#1a1a1a"><img src="sourcebox_logo.png" width="200" alt="SourceBox Logo"></td></tr>
+            <tr><th width="40%">Version</th><td>v0.3.2.1999</td></tr>
+            <tr><th>Role</th><td>Tracker / Render</td></tr>
+        </table>
+
+        <p>In this part we will discuss SourceBox and its features! This tool is used to - for entity tracking and server synchronization within the Source engine framework, created out nessecity for secure key validation and data pushes in dynamic environments. Its multifunctional utility.</p>
+        <p>Here is a full list of what SourceBox is - a console-driven initializer, entity tracker, local host, and even scene renderer utilizing what we call the Ordinance system. Try saying that ten times faster! :D</p>
+
+        <a name="SB_Nav"></a>
+        <h3>Basic Navigation</h3>
+        
+        <table class="thumb" align="left" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-right: 15px;">
+            <tr><td align="center"><img src="screen18.png" width="250" border="1" alt="SourceBox UI"></td></tr>
+            <tr><td class="thumb-caption">SourceBox menu screen</td></tr>
+        </table>
+        
+        <p>Using SourceBox is pretty simple, as it only has three buttons you will need to memorize at most - Cube, Sphere and cone. Cube is used to spawn FSKY Capture Cube in active Source game, Sphere is used for - Ordinance System to render specific scene captured via cube from the spray decals. And cone, used to establish connection, and track the position of entities from active DME file on server host.</p>
+        
+        <p>In tracker mode you see location code, usualy defined with few letters and numbers, active DME file name, entity coordinates, and METAL_REG logic. Console Access: Press the tilde key "~" to toggle the console. All operations are command-driven.</p>
+        
+        <ul>
+            <li><b>Command Input:</b> Type commands directly into the console prompt (prefixed with "]"). Use Up/Down arrows to cycle through command history.</li>
+            <li><b>Status Bar:</b> The bottom of the interface displays connection status, latency, and handshake results.</li>
+            <li>Type in "help" for available commands!</li>
+        </ul>
+
+        <br clear="all">
+
+        <h3>Loading/Saving Scenes</h3>
+        <ul>
+            <li><b>File Format:</b> SourceBox handles .DME files indirectly through synchronization commands. It does not directly edit scenes but pushes/pulls them to/from the server.</li>
+            <li><b>Sync Operations:</b> Use console commands like "network-push" to upload local .DME changes, or "get s.interlope.pull:27015" to request data pulls from the server.</li>
+        </ul>
+
+        <table class="thumb" align="middle" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-left: 10px;">
+            <tr><td align="center"><img src="screen20.png" width="250" border="1" alt="Tracker"></td></tr>
+            <tr><td class="thumb-caption">Loading DME notification</td></tr>
+			<tr><td align="center"><img src="screen19.png" width="250" border="1" alt="Tracker"></td></tr>
+            <tr><td class="thumb-caption">DME browser menu</td></tr>
+        </table>
+
+        <div class="alert-box alert-warning">
+            <font color="#ff6666"><b>WARNING! DO NOT USE this command (get s.interlope.pull:27015)!</b></font><br>
+            It is only a debugging feature, that exists soully for developers, it requests data .dem files used for our AI trainning for inspections from our FTP server. Use of such commands considered datamining, and will result in getting flagged by our security system, termination all instance of our software, and even result in some of your games being temporary disabled. Followed by Immediate license key terminations. You were informed and by purchasing signed an agreemnts to such terms.
+        </div>
+
+        <ul>
+            <li><b>Auto-Sync:</b> SourceBox automatically syncs with the local INT_MENU instance upon detecting new submissions from Gris. Manual saves are not required, but use "cdkey_check" to validate before major pushes.</li>
+            <li>Console displays logs in color-coded text: default (yellow), error (red), success (green), info (blue), input (white), title (gray), sys (light gray).</li>
+            <li><b>Logs:</b> Up to 14 recent entries are shown, scrolling automatically. Use "clear" to reset.</li>
+            <li><b>Input Prompt:</b> Starts with "] " and includes a blinking cursor for command entry.</li>
+        </ul>
+
+        <h4>Hotkeys:</h4>
+        <ul>
+            <li><kbd>~</kbd>: Toggle console.</li>
+            <li><kbd>Enter</kbd>: Execute command.</li>
+            <li><kbd>Backspace</kbd>: Edit input.</li>
+            <li><kbd>Esc</kbd>: Close console (if no input active).</li>
+        </ul>
+
+        <a name="SB_Console"></a>
+        <h3>Using the Console</h3>
+        <p>SourceBox's core functionality revolves around console commands for authentication, networking, and tracking. Commands are case-insensitive and executed via Enter.</p>
+
+        <table class="thumb" align="right" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-left: 10px;">
+            <tr><td align="center"><img src="screen21.png" width="250" border="1" alt="Tracker"></td></tr>
+            <tr><td class="thumb-caption">SourceBox Console</td></tr>
+        </table>
+
+        <b>Available Commands:</b>
+        <ul>
+            <li><b>help:</b> Displays a list of available commands, including "get s.interlope.pull:27015" for data pulls, "getpos" for tracked positions, "status" for socket state, "clear" to reset console, "network-push" for updates.</li>
+            <li><b>clear:</b> Clears all console logs.</li>
+            <li><b>status:</b> Shows detailed FSKY socket status, including host, port, state, latency, and handshake.</li>
+            <li><b>network-push:</b> Enters administrative mode for pushing updates. Follow with "ord_ren" to ping your container. Warns about stable connections to avoid issues that anger James (he WILL slap you with a fish).</li>
+            <li><b>ord_ren:</b> Initiates a heartbeat ping to the container after "network-push". Validates connection and prepares for sync.</li>
+            <li><b>cdkey_check:</b> Validates your development kit CDKEY before submissions. Required after "ord_ren" for final authentication.</li>
+            <li><b>get s.interlope.pull:27015:</b> Requests a data .dem pull from the server. Saves to Steam/steamapps/common/HL2/bin/SourceBox V0.3.2.1999/render/sessions/. Automatically handles disconnections.</li>
+            <li><b>getpos:</b> Retrieves the current tracked position of the Interloper entity from INTERLOPE.DME.</li>
+            <li><b>cdkey_reg:</b> Starts the CDKEY registration process (used during initial setup).</li>
+            <li><b>ord_gen:</b> Generates a temporary secure input field for manual CDKEY entry.</li>
+        </ul>
+        <p>For more commands visit our website or ask devs on forum, they will gladly reply.</p>
+
+        <a name="SB_Tracker"></a>
+        <h3>Tracker Functionality</h3>
+        
+        <table class="thumb" align="right" width="260" cellspacing="0" cellpadding="0" border="0" style="margin-left: 10px;">
+            <tr><td align="center"><img src="screen17.png" width="250" border="1" alt="Tracker"></td></tr>
+            <tr><td class="thumb-caption">SourceBox Tracker Mode</td></tr>
+        </table>
+
+        <p>SourceBox's Tracker is a built-in monitor that runs in the background, tracking the active DME file on server (INTERLOPE.DME) file specifically monitors the FSKY_CAPTURE_CBSGY entity class, that handles AI managment, logging its position, state changes, and capture events in real-time.</p>
+        <p>The scene mostly displays the void, but to make it visualy more interesting, rather then forcing you or our developers to stare at blank space, we divided it into sectors, creating this Tron alike environment that can be quite cool to observe! Map Skybox are represented by the blue cubes you can see in void near tracked entity, it always appears near them, represented by the red Tracked cone above it, and connected via two lines - orange stretching from its origin point from submitted INT_MENU instance, and blue one - targeted location it observes/handles.</p>
+        <p>You can also see the active AI cones in distance as they ocasinally travel through the void, or get submitted to server side, traveling to their respected positions or POI - point of interest.</p>
+
+        <p>SourceBox uses a variety of audio tones to signal its operations, it is pretty normal to hear some "beeps" and "boops" durings its operations aside from music. It signals logic firing, checks, etc, but what you really have to look out for is following list of sounds:</p>
+        
+        <ul>
+            <li><b>Friend_Join:</b> - while it is used to signal injection or host connection, if you hear it second time during active session: it means someone connected directly TO YOU, and can steal your data. While we do care for our users safety, and try to do anything in our power to avoid such cases, we cannot guarantee 100% safety. IF this incident occured, terminate you active session by shutting down the SourceBox, and inform our server supervisors at www.fskyhostings/safety.no. We will check the logs, help you to change the registry key, and ban users responsible.</li>
+            <li><b>Message:</b> - Usualy used to signal any errors, always check your console.</li>
+            <li><b>WARNINGBELL:</b> - this sound signals a System alert, please inspect console output immediately, check your wifi connection. Verify game runtime. And METAL_REG state, or DME integrity to prevent crashes.</li>
+        </ul>
+
+        <div class="alert-box alert-warning">
+            <font color="#ff6666"><b>If you see one of following issues:</b></font><br>
+            1. Console contains any errors error messages.<br>
+            2. Wifi connection is bad/or down.<br>
+            3. METAL_REG displays HALTED state.<br>
+            4. DME integrity check returns fail.<br>
+            5. Game is unresponsive.<br><br>
+            It means - you are actively crashing, and immediate actions are required. Please try disconnecting from server host, do not force app closure without disconnecting from the host, close SourceBox and Gris, and only then close your game. Failing to safely disconnect can cause local runtime anomalies or entities unprodictable behaviours. Notify if you expirienced this issue.</b></font>
+        </div>
+
+		<div class="alert-box alert-warning">
+        </b> Please note that if you experiencing a "#SBERROR_CDGRISNOTFOUND" during initial launch, this signals that you failed to correctly mount and compile the disk image.</b>
+		</div>
+
+        <h4>Tracker keybinds:</h4>
+        <ul>
+            <li><kbd>R</kbd> - Changes current tracked entity to other one.</li>
+            <li><kbd>Y</kbd> - Focuses on current tracked entity.</li>
+            <li><kbd>F</kbd> - Set to window/fullscreen mode.</li>
+            <li><kbd>M</kbd> - Mute the music.</li>
+            <li><kbd>~</kbd> - Open the console.</li>
+            <li><kbd>N</kbd> - Disconnect from server and switch to local DME host. Followed by opening local .DME files browser. Note: Absence of valid Validators may cause instability. Validators authenticate scene data and authorize manipulations of DMNPC logic.</li>
+            <li><kbd>C</kbd> - Fast Gris Launch.</li>
+        </ul>
+
+        <a name="ORD"></a>
+        <h3>ORD_CAPTURE</h3>
+        <p>Also known Ordinance system, its a specialized rendering utility integrated into SourceBox for capturing and rendering scenes from server by memory! It enables the extraction of preserved gameplay scene from recorded player sessions (from demo) used to train advanced AI entities like Siuef types. Or from saved scenes! These represent captured demos and environmental states stored on our host server, allowing developers and players to pull, render, and interact with their scenes without direct engine modifications.</p>
+        <p>To access Ordinance system, simple press the sphere button in menu.</p>
+        
+        <div class="alert-box alert-note">
+            <font color="#66b3ff"><b>NOTE:</b></font> Sometimes SourceBox can be a bit glitchy and has quirks by being un able to find a valid Graphics driver due to its age, if thats the case, Press N, to force it re-scan available drivers and validate them. Then, by pressing R - capturing active engine processes (to read sprays or entity placements), then press R again to start rendering!
+        </div>
+
+        <p><b>Here is full instructions how to do it properly:</b></p>
+        <ol>
+            <li><b>Prepare the Scene:</b> In a Source engine game - apply a spray decal on a wall of scene you wish to render (e.g., before the player's view or an open skybox area).</li>
+            <li><b>Spawn FSKY Cube entity:</b> Introduce a cube entity (via SourceBox menu button) put it directly in water.</li>
+            <li><b>Open Sphere menu:</b> Navigate to the sphere rendering submenu in SourceBox</li>
+            <li><b>Validate Drivers:</b> Execute driver validation and capture the instance of active engine process (e.g., HL2.EXE or equivalent). This step captures the spray.</li>
+            <li><b>Initiate Capture:</b> Trigger the capture command to pull the scene data from the server.</li>
+            <li><b>Render Interactive Scene:</b> Once captured, ordinance render generates an interactive void instance. The process renders the saved environment, including players interactions and AI behaviors. Users can explore, modify within this rendered space.</li>
+        </ol>
+
+        <h4>Importance of Responsible Use</h4>
+        <p>The Ordinance system must not be misused, as emphasized in our guidelines. Unauthorized alterations&#151;such as killing DMNPC entities or disrupting void structures&#151;can permanently ruin preserved scenes. These memories, stored on the host server without comprehensive backups, represent irreplaceable player experiences and AI training data. Interfering risks corrupting the void's stability, preventing others from enjoying or building upon these shared environments. We urge all users to handle ordinance renders with care, ensuring everyone can preserve and have fun with their creations.</p>
+        <p>In case if said system is misused, system will flag you and terminate all your game instances as well SourceBox, followed by immediate license key terminations.</p>
+
+        <hr>
+
+        <!-- MAKE FACE SECTION -->
+        <a name="MakeFace"></a>
+        <h2>MAKE FACE (to be removed)</h2>
+
+        <table class="infobox" width="220" align="right" border="0" cellpadding="0" cellspacing="0">
+            <tr><td class="infobox-head" colspan="2">MakeFace</td></tr>
+            <tr><th width="40%">Format</th><td>.VTF to .MDL</td></tr>
+			<tr><th width="40%">Icon</th><td>Lost</td></tr>
+            <tr><th>Status</th><td>Deprecated</td></tr>
+        </table>
+
+        <p><b>Notice: This page is to be removed.</b></p>
+        <p>MakeFace is one of the earlies FSKY tools, that handles models generation from Valve Texture Format files. It doesnt has native interface and can only be launched via command console, by navigating to MakeFace.exe, and then launching it by following command:</p>
+
+        <div class="cmd-box">
+C:\> cd C:\Program Files\Valve\SourceSDK\bin\MAKEFACE
+C:\Program Files\Valve\SourceSDK\bin\MAKEFACE> makeface.exe -src "C:\Valve\SourceSDK\bin\materials\models\research\YOURFILENAME.VTF" -res 256 -out "C:\Valve\SourceSDK\models\MakeFace\YOURFILENAME.MDL" -v -nodes 1024 
+        </div>
+
+        <p>Wich will launch Face or model generation immediately, this process may take a while, but in the end it will output generated model base on your texture. We dont really recommend you to use this method, as meshes can appear heavily broken or even un-optimized.</p>
+        <p>You can however try generating an SMD file of your model, that you can optimize using side editors with SMD support pluggins. For this, use following command:</p>
+
+        <div class="cmd-box">
+C:\> cd C:\Program Files\Valve\SourceSDK\bin\MAKEFACE
+C:\Program Files\Valve\SourceSDK\bin\MAKEFACE> makeface.exe -src "C:\Valve\SourceSDK\bin\materials\models\research\YOURFILENAME.VTF" -res 256 -out "C:\Valve\SourceSDK\models\MakeFace\YOURFILENAME.SMD" -v -nodes 1024 
+        </div>
+
+        <p>Do note that some of the models may look unsettling due to both softwares age and unreliability. Therefore, newer versions will no longer include this tool in dev suite. Use at your own risk. Please ensure that no human face imagery was used without their consent.</p>
+
+        <p><br>That covers all current avalible tools. Once again thank you for purshaching this development tool suite! See you at the Server!</p>
+        <p>Got questions? Visit www.fskydev/forums.no. See you on the servers! Thanks again for your purchase &#150; FSKY.</p>
+
+    </td>
+</tr>
+<tr>
+    <!-- FOOTER -->
+    <td colspan="2" class="footer">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td width="33%" align="left">
+                    <img src="valve_logo.png" alt="Valid HTML 4.01!" width="110" height="30" border="0">
+                </td>
+                <td width="33%" align="center">
+                    Categories: <a href="#">Source</a> | <a href="#">Tools</a> | <a href="#">Beta Software</a><br>
+                    &copy; 2003 FSKY. All rights reserved.<br>
+                    Source Engine&trade; Valve Corporation.
+                </td>
+                <td width="33%" align="right">
+                    Server hosting og teknologi for deg!
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+
+</center>
+
+</body>
+</html>

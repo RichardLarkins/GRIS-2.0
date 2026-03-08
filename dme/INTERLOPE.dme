@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "camera": {
+    "pos": [
+      -2.841643639548648,
+      2.284396224910604,
+      8.543729669134205
+    ],
+    "yaw": -89.25,
+    "pitch": -5.25
+  },
+  "int_menu_mode": false,
+  "objects": [
+    {
+      "type": "Model",
+      "position": [
+        0.0,
+        0.0,
+        3.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        -88.0544989974771,
+        0.0
+      ],
+      "color": null,
+      "has_ai": true,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": "C:/Users/Home/Desktop/Gris/models/olive.obj",
+      "material": null,
+      "ai_type": "FSKY_CAPTURE_CBSGY",
+      "ai_config": {
+        "fsky_ignore_col": true,
+        "fsky_radius": 100.0,
+        "fsky_pass": "C:/Users/Home/Desktop/Gris/sound/special/windchime2.wav",
+        "fsky_cap": "C:/Users/Home/Desktop/Gris/sound/special/message.wav",
+        "fsky_not1": "C:/Users/Home/Desktop/Gris/sound/special/windchime4.wav",
+        "fsky_not2": "C:/Users/Home/Desktop/Gris/sound/special/windchime5.wav"
+      },
+      "ai_state": "HALT"
+    }
+  ]
+}

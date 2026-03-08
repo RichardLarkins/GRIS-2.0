@@ -1,0 +1,685 @@
+{
+  "version": 1,
+  "camera": {
+    "pos": [
+      0.45279774896426683,
+      2.0064835239090164,
+      4.699756543602648
+    ],
+    "yaw": -1167.75,
+    "pitch": -14.25
+  },
+  "int_menu_mode": false,
+  "objects": [
+    {
+      "type": "3D Oval",
+      "position": [
+        -4.88958032865487,
+        3.8499999999999965,
+        -2.910599301344475
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.6100000000000005,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -276.0,
+        42.0,
+        92.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -3.4770050000764954,
+        3.9099999999999957,
+        -2.938236228805233
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.3900000000000003,
+        0.3399999999999994
+      ],
+      "rotation": [
+        -90.0,
+        43.24877281376657,
+        88.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -5.999580328654867,
+        3.8199999999999963,
+        -1.9405993013444778
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.8000000000000007,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -134.0,
+        -14.0,
+        -2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -5.990892123884187,
+        2.020000000000001,
+        -2.914604485745426
+      ],
+      "scale": [
+        0.4399999999999995,
+        2.9599999999999804,
+        0.9099999999999999
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        0.36470588235294116,
+        0.1843137254901961,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -5.957005000076489,
+        3.7199999999999966,
+        -0.5882362288052359
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.4500000000000004,
+        0.49999999999999956
+      ],
+      "rotation": [
+        -29.078927672424346,
+        0.0,
+        2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "Cone",
+      "position": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "has_ai": true,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "DMNPC_TLEET_WDYMS",
+      "ai_config": {
+        "dmnpc_phys": "GRIS shape",
+        "dmnpc_pass": "C:/Users/Home/Desktop/Gris/sound/special/talk.wav",
+        "dmnpc_dmg": "",
+        "dmnpc_death": "C:/Users/Home/Desktop/Gris/sound/special/pl_drown1.wav"
+      },
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -5.899580328654868,
+        3.959999999999996,
+        -4.120599301344478
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.8000000000000007,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -412.13307110493247,
+        178.6485739274486,
+        -180.00028609583575
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -5.77700500007649,
+        3.8399999999999963,
+        -5.548236228805236
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.4500000000000004,
+        0.49999999999999956
+      ],
+      "rotation": [
+        567.713169853649,
+        0.0,
+        2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -7.029580328654871,
+        3.9099999999999966,
+        -3.050599301344475
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.6100000000000005,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -276.0,
+        -46.79988839189637,
+        92.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -8.357005000076494,
+        3.9299999999999957,
+        -3.038236228805233
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.3900000000000003,
+        0.3399999999999994
+      ],
+      "rotation": [
+        -91.5868497209462,
+        -410.672296290776,
+        88.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -0.8708921238841869,
+        1.620000000000001,
+        -5.874604485745426
+      ],
+      "scale": [
+        0.4399999999999995,
+        2.9599999999999804,
+        0.9099999999999999
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        0.36470588235294116,
+        0.1843137254901961,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -0.8795803286548667,
+        3.4199999999999964,
+        -4.900599301344478
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.8000000000000007,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -134.0,
+        -14.0,
+        -2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -0.8370050000764886,
+        3.3199999999999967,
+        -3.5482362288052363
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.4500000000000004,
+        0.49999999999999956
+      ],
+      "rotation": [
+        -29.078927672424346,
+        0.0,
+        2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -3.2370050000764943,
+        3.529999999999996,
+        -5.998236228805233
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.3900000000000003,
+        0.3399999999999994
+      ],
+      "rotation": [
+        -91.5868497209462,
+        -410.672296290776,
+        88.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -1.9095803286548705,
+        3.5099999999999967,
+        -6.010599301344476
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.6100000000000005,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -276.0,
+        -46.79988839189637,
+        92.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -0.7795803286548679,
+        3.559999999999996,
+        -7.080599301344478
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.8000000000000007,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -412.13307110493247,
+        178.6485739274486,
+        -180.00028609583575
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        -0.6570050000764898,
+        3.4399999999999964,
+        -8.508236228805236
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.4500000000000004,
+        0.49999999999999956
+      ],
+      "rotation": [
+        567.713169853649,
+        0.0,
+        2.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        0.23041967134513008,
+        3.4499999999999966,
+        -5.870599301344475
+      ],
+      "scale": [
+        0.48999999999999955,
+        1.6100000000000005,
+        0.5099999999999996
+      ],
+      "rotation": [
+        -276.0,
+        42.0,
+        92.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    },
+    {
+      "type": "3D Oval",
+      "position": [
+        1.6429949999235047,
+        3.509999999999996,
+        -5.898236228805233
+      ],
+      "scale": [
+        0.38999999999999946,
+        1.3900000000000003,
+        0.3399999999999994
+      ],
+      "rotation": [
+        -90.0,
+        43.24877281376657,
+        88.0
+      ],
+      "color": [
+        0.0,
+        0.615686274509804,
+        0.0
+      ],
+      "has_ai": false,
+      "ai_vertex_dir": [
+        0,
+        1,
+        0
+      ],
+      "original_position": null,
+      "model_path": null,
+      "material": null,
+      "ai_type": "None",
+      "ai_config": {},
+      "ai_state": "WANDER"
+    }
+  ]
+}
