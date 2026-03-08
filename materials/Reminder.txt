@@ -1,0 +1,1 @@
+Friendly reminder to anyone - the "_alpha" and "_cutout" prefixes help with materials tranperancy for grates, fences, etc. While "_trans" "_glass" helps with drawing glass effects. Same trick also works for models.
